@@ -1,0 +1,239 @@
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+}
+body{
+  font-family: montserret,sans-serif;
+  line-height: 1.5;
+  user-select: none;
+  /*background: linear-gradient(-20deg,#f44a07,#ff8731);*/
+  background-image: url("photos/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 43.5rem;
+  overflow: hidden;
+}
+.close-btn{
+    display: none;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 70px 0px;
+}
+nav h3{
+    font-size: 24px;
+}
+nav h3 a{
+    color: #fff;
+    font-weight: 400;
+}
+nav ul{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+nav ul li a{
+    color: #fff;
+}
+nav ul button{
+    padding: 0.65rem 1.5rem;
+    border-radius: 70px;
+    text-align: center;
+    background: linear-gradient(-20deg,#f44a07,#ff8731);
+    border: 1px solid orangered;
+    transition: all 700ms ease;
+}
+nav ul button:hover{
+    background: transparent;
+    cursor: pointer;
+}
+nav ul button:hover a{
+    color: #fff;
+}
+nav ul button a{
+    color: black;
+}
+.content{  
+    opacity: 0;  
+    padding: 13rem 40px 0 40px;
+    animation: animateContent 4s ease forwards;
+}
+@keyframes animateContent{
+    to{
+        opacity: 1;
+    }
+}
+.content .left{
+    color: #fff;
+    width: 60%;
+}
+.content .left h2{
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+.content .left p{
+    font-weight: 200;
+    margin-bottom: 10px;
+}
+.content .left button{
+    padding: 0.65rem 1.5rem;
+    border-radius: 70px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid transparent;
+    transition: all 700ms ease;
+}
+.content .left button:hover{
+    background: transparent;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+.content .left button:hover a{
+    color: #fff;
+}
+.left button a{
+    color: black;
+}
+.tray{
+    width:12rem;
+    height: 5rem;
+    position: absolute;
+    top:55%;
+    right: 6rem;
+    z-index: -1;
+    transform: translateY(-180%);
+}
+.tray img{
+    width: 100%;
+    animation: rotat  20s linear infinite;
+    -moz-animation: rotat 20s linear infinite;
+    -webkit-animation:rotat 20s linear infinite ; 
+}
+@-webkit-keyframes rotat {
+    100%{
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-moz-keyframes rotate {
+    100%{
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes rotate {
+    100%{
+        -webkit-transform: rotate(360deg);
+    }
+}
+@media screen and (max-width:1024px){
+    .content{  
+        padding: 13rem 20px 0 35px;
+    }
+    .tray{
+        
+    }
+}
+@media screen and (max-width:825px){
+    .close-btn{
+        display: block;
+        color: #fff;
+    }
+    .close-btn .close{
+        display: none;
+    }
+    .content{  
+        padding: 1.5rem 20px 0 35px;
+    }
+    .content .left{
+        width:100%;
+        text-align: center;
+    }
+    .tray{
+        width:97%;
+        top:0%;
+        right: 0%;
+        text-align: center;
+        transform: translateY(400%);  
+    }
+    .tray img{
+        width: 35%;
+    }
+    nav ul{
+        flex-direction: column;
+        position: fixed;
+        top: 3.85rem;
+        right: 10%;
+        height: fit-content;
+        width: 15rem;
+        z-index: 100;
+        perspective: 300px;
+        gap: 0;
+        display: none;
+    }
+    nav ul li{
+        background: red;
+        width: 60%;
+        text-align: center;
+        padding: 0.7rem 0.4rem;
+        animation: animatNavItems 300ms  forwards;
+    }
+    nav ul button{
+        padding: 0.65rem 0;
+        width: 60%;
+        border-radius: 0;
+        animation: animatNavItems 300ms  forwards;
+        transform-origin: top right;
+    }
+    nav  li:nth-child(2){
+       animation-delay: 200ms;
+    }
+    nav  ul li:nth-child(3){
+       animation-delay: 400ms;
+    }
+    nav  ul li:nth-child(4){
+        animation-delay: 600ms;
+    }
+    /*this is used for animations*/
+    @keyframes animatNavItems{
+        0%{
+            transform:rotateX(90deg) ;
+        }
+        100%{
+            transform: rotateX(0) ;
+            opacity: 1;
+        }
+    }
+}
+@media screen and (max-width:600px){
+    .tray{
+        width:97%;
+        top:0%;
+        right: 0%;
+        text-align: center;
+        transform: translateY(400%);  
+    }
+    .tray img{
+        width: 50%;
+    }
+}
+@media screen and (max-width:430px){
+    nav{
+        padding: 10px 40px 0px;
+    }
+    .tray{
+        width:97%;
+        top:0%;
+        right: 0%;
+        text-align: center;
+        transform: translateY(520%);  
+    }
+}
